@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfacebook.facebook.model">
+
+<insert id="memberInput" parameterType="LoginDTO">
+ insert into fb_member values(seq_unum.nextval,#{fname},#{name},#{email},#{password},#{byear},#{bmonth},
+ #{bday},sysdate,#{sex})
+</insert>
+<select id="getMember" parameterType="LoginDTO" resultType="LoginDTO">
+ select * from fb_member where email = #{email}
+</select>
+
+
+</mapper>
