@@ -9,15 +9,15 @@
 <body>
 <table width="100%">
  <tr>
+ <form name="f" action="search_friend.do" method="post">
   <td>
    <a href="home.do">FACEBOOK</a>
    °Ë»ö
    <input type="text" name="search">
+   <input type="submit" value="°Ë»ö">
   </td>
+  </form>
   <td align="right">
-   ${sessionScope.getMember.fname}${sessionScope.getMember.name}´Ô <a href="logout.do">·Î±×¾Æ¿ô</a>
+   ${getMember.fname}${getMember.name}´Ô <a href="logout.do">·Î±×¾Æ¿ô</a>
   </td>
  </tr>
- 
- 
-

@@ -20,12 +20,12 @@
     </tr>
     <tr>
      <td>
-      模备
+      <a href="friend_list.do?unum=${sessionScope.getMember.unum}">模备</a>
      </td>
     </tr>
     <tr>
      <td>
-      皋技瘤
+      <a href="message_list?unum='${sessonScope.unum}'">皋技瘤</a>
      </td>
     </tr>
    </table>
@@ -61,7 +61,7 @@
   
   
   <td>
-   堡绊魄
+   模备夸没格废
   </td>
  </tr>
 </table>

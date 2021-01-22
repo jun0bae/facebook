@@ -11,6 +11,8 @@
 <select id="getMember" parameterType="LoginDTO" resultType="LoginDTO">
  select * from fb_member where email = #{email}
 </select>
-
+<select id="getFriend_request" parameterType="int" resultType="RequestDTO">
+select * from fb_friend_request where unum= #{unum}
+</select>
 
 </mapper>

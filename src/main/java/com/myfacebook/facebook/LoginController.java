@@ -1,5 +1,7 @@
 package com.myfacebook.facebook;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myfacebook.facebook.model.LoginDTO;
+import com.myfacebook.facebook.model.RequestDTO;
 import com.myfacebook.facebook.service.LoginMapper;
 
 
@@ -19,7 +22,12 @@ public class LoginController {
 	@Autowired
 	private LoginMapper loginMapper;
 	@RequestMapping("home.do")
-	public String home() {
+	public String home(HttpServletRequest req,HttpSession session) {
+		LoginDTO member = (LoginDTO)session.getAttribute("getMember");
+		if(member!=null) {
+		List<RequestDTO> friend_request = loginMapper.getFriend_request(member.getUnum());
+		req.setAttribute("getFriend_request", friend_request);
+		}
 		return "home";
 	}
 	@RequestMapping("login.do")
@@ -29,7 +37,7 @@ public class LoginController {
 	@RequestMapping("login_ok.do")
 	public ModelAndView loginOk(HttpServletRequest req,LoginDTO dto,HttpSession session) {
 		String msg,url;
-		ModelAndView mav = new ModelAndView("home");
+		ModelAndView mav = new ModelAndView("message");
 		String email =(String)req.getParameter("email");
 		String password = (String)req.getParameter("password");
 		dto.setEmail(email);
